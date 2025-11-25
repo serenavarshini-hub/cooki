@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>AR Fortune Cookie — Galent</title>
+
+  <!-- A-Frame + AR.js -->
+  <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ar.js@3.4.4/aframe/build/aframe-ar.js"></script>
+
+  <style>
+    body { margin: 0; overflow: hidden; font-family: Arial, sans-serif; }
+  </style>
+
+  <script>
+    AFRAME.registerComponent('fortune-generator', {
+      init: function () {
+        const fortunes = [
+          "Your next big idea is loading…",
+          "A promotion is closer than it appears.",
+          "Someone thinks you're the office MVP today.",
+          "You will debug something in one try. Believe.",
+          "Your chai break will arrive at the perfect moment.",
+          "A surprise compliment is coming your way.",
+          "Your boss secretly appreciates you… a lot.",
+          "Today is a top-tier productivity day.",
+          "Your inbox will be kinder than usual.",
+          "A new skill will click perfectly this week.",
+          "You will close a ticket faster than Jira updates.",
+          "Someone in this building is grateful for you.",
+          "A lucky opportunity will open up soon.",
+          "Your hard work is being noticed.",
+          "Good vibes are chasing you—don’t run."
+        ];
+
+        const fortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+
+        const textEntity = document.querySelector("#fortuneText");
+        textEntity.setAttribute("text", "value", fortune);
+
+        textEntity.setAttribute("animation__fade", {
+          property: "material.opacity",
+          from: 0,
+          to: 1,
+          dur: 900
+        });
+
+        textEntity.setAttribute("animation__float", {
+          property: "position",
+          from: "0 0.55 0",
+          to: "0 0.75 0",
+          dir: "alternate",
+          dur: 2200,
+          loop: true
+        });
+
+        setTimeout(() => {
+          window.location.href = "https://linktr.ee/galentreviews";
+        }, 7000);
+      }
+    });
+  </script>
+
+</head>
+
+<body>
+  <a-scene
+    embedded
+    vr-mode-ui="enabled: false"
+    renderer="antialias: true; alpha: true;"
+    arjs="sourceType: webcam; debugUIEnabled: false;"
+  >
+    <!-- Custom marker here -->
+    <a-marker type="pattern" url="markers/galent.patt" fortune-generator>
+
+      <!-- floating fortune text -->
+      <a-entity
+        id="fortuneText"
+        position="0 0.55 0"
+        text="value: ; color: #6b3c00; align: center; width: 2.4; wrapCount: 30; opacity: 0"
+        look-at="[camera]">
+      </a-entity>
+
+      <a-entity camera></a-entity>
+    </a-marker>
+
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+</html>
