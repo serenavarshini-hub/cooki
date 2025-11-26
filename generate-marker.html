@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Star Marker Pattern</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .steps {
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+        .steps ol {
+            margin-left: 20px;
+        }
+        .link-btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .link-btn:hover {
+            background: #5568d3;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Generate Star Marker Pattern</h1>
+        <div class="steps">
+            <p>To use your star image as an AR marker, you need to generate a pattern file (.patt). Follow these steps:</p>
+            <ol>
+                <li>Click the link below to open the AR.js Marker Generator</li>
+                <li>Upload your star image (the black star on white background)</li>
+                <li>Wait for the pattern to be generated</li>
+                <li>Download the generated .patt file</li>
+                <li>Save it as <code>markers/star-marker.patt</code> in your AR folder</li>
+                <li>Refresh your AR app and test it!</li>
+            </ol>
+        </div>
+        
+        <a href="https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html" 
+           target="_blank" 
+           class="link-btn">
+            Open AR.js Marker Generator →
+        </a>
+        
+        <div class="warning">
+            <strong>Important:</strong> Make sure to save the downloaded file as <code>star-marker.patt</code> in the <code>markers/</code> folder. The file must be named exactly <code>star-marker.patt</code> for the app to work.
+        </div>
+        
+        <h2>Tips for Best Results:</h2>
+        <ul>
+            <li>Your star image (black on white) is perfect for marker generation</li>
+            <li>Print the marker at least 8x8 cm (3x3 inches) for best detection</li>
+            <li>Ensure good lighting when using the marker</li>
+            <li>Keep the marker flat and steady</li>
+        </ul>
+    </div>
+</body>
+</html>
+

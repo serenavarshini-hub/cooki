@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Image Tracking - 3D Model Viewer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.2/aframe/build/aframe-ar.js"></script>
+</head>
+<body>
+    <div id="app-container">
+        <div id="start-screen" class="screen active">
+            <h1>AR 3D Model Viewer</h1>
+            <p>Point your camera at the target image to see a 3D model appear!</p>
+            <button id="start-camera-btn" class="btn-primary">Open Camera</button>
+            <div class="info-box">
+                <h3>Instructions:</h3>
+                <ol>
+                    <li>Click "Open Camera" to start</li>
+                    <li>Allow camera permissions</li>
+                    <li>Point camera at the target image/logo</li>
+                    <li>Watch the 3D model appear!</li>
+                </ol>
+                <p class="note"><strong>Note:</strong> Currently testing with Hiro marker. If this works, we'll switch to your star marker. <a href="https://jeromeetienne.github.io/AR.js/data/images/HIRO.jpg" target="_blank" style="color: #fff; text-decoration: underline;">Download Hiro marker</a></p>
+            </div>
+        </div>
+
+        <div id="ar-screen" class="screen">
+            <a-scene 
+                id="ar-scene"
+                vr-mode-ui="enabled: false"
+                renderer="logarithmicDepthBuffer: true; colorManagement: true; sortObjects: true"
+                embedded
+                arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: true; detectionMode: mono_and_matrix; matrixCodeType: 3x3; maxDetectionRate: 60; cameraParametersUrl: https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.2/data/data/camera_para.dat; canvasWidth: 1280; canvasHeight: 720; trackingMethod: best; smooth: true; smoothCount: 10; smoothTolerance: 0.01; smoothThreshold: 5;">
+                
+                <!-- Camera -->
+                <a-entity camera></a-entity>
+                
+                <!-- AR Marker (Image Tracking) - Star Pattern -->
+                <!-- Try Hiro first: preset="hiro" -->
+                <!-- Then switch to: url="markers/star-marker.patt" -->
+                <a-marker 
+                    id="marker"
+                    type="pattern" 
+                    preset="hiro"
+                    size="1"
+                    raycaster="objects: .clickable"
+                    emitevents="true"
+                    cursor="fuse: false; rayOrigin: mouse;">
+                    
+                    <!-- 3D Model Container - Gift Loot Box -->
+                    <a-entity id="model-container" position="0 0 0" scale="1 1 1">
+                        <!-- Gift Loot Box 3D Model -->
+                        <a-gltf-model 
+                            src="glb/gift_loot_box_thing_wip.glb"
+                            position="0 0.5 0"
+                            scale="0.5 0.5 0.5"
+                            rotation="0 0 0"
+                            animation-mixer>
+                        </a-gltf-model>
+                    </a-entity>
+                </a-marker>
+            </a-scene>
+            
+            <button id="close-camera-btn" class="btn-close">Close Camera</button>
+            <div id="marker-status" class="marker-status">Point camera at star marker...</div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+

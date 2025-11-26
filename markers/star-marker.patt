@@ -1,0 +1,7 @@
+# Placeholder pattern file
+# To generate the actual pattern file:
+# 1. Go to: https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html
+# 2. Upload your star image
+# 3. Download the generated .patt file
+# 4. Replace this file with the downloaded pattern file
+

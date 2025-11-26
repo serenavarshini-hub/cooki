@@ -1,0 +1,22 @@
+{
+  "name": "ar-image-tracking",
+  "version": "1.0.0",
+  "description": "AR web application with image tracking and 3D model display",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000 -c-1",
+    "dev": "npx http-server -p 8000 -c-1 -o"
+  },
+  "keywords": [
+    "ar",
+    "augmented-reality",
+    "image-tracking",
+    "3d-models",
+    "web-ar"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
+
