@@ -23,7 +23,7 @@
                     <li>Point camera at the target image/logo</li>
                     <li>Watch the 3D model appear!</li>
                 </ol>
-                <p class="note"><strong>Note:</strong> Currently testing with Hiro marker. If this works, we'll switch to your star marker. <a href="https://jeromeetienne.github.io/AR.js/data/images/HIRO.jpg" target="_blank" style="color: #fff; text-decoration: underline;">Download Hiro marker</a></p>
+                <p class="note"><strong>Note:</strong> Using custom star marker pattern. Point your camera at the star marker to see the 3D model!</p>
             </div>
         </div>
 
@@ -44,7 +44,7 @@
                 <a-marker 
                     id="marker"
                     type="pattern" 
-                    preset="hiro"
+                    url="markers/star-marker.patt"
                     size="1"
                     raycaster="objects: .clickable"
                     emitevents="true"
